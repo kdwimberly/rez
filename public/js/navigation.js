@@ -1,0 +1,5 @@
+const routes=[['Home','/'],['Story','/story'],['Prologue','/prologue'],['Zevora I','/chapter-1'],['Archive','/archive'],['Lore','/lore'],['About / FAQ','/about']];
+const path=location.pathname.replace(/\/$/,'')||'/';
+const nav=routes.map(([label,href])=>`<a href="${href}"${path===href?' aria-current="page"':''}>${label}</a>`).join('');
+document.querySelectorAll('[data-site-header]').forEach(el=>{el.innerHTML=`<header class="site-header"><a class="brand" href="/" aria-label="REZ home">RE<span>Z</span></a><nav class="desktop-nav" aria-label="Primary">${nav}</nav><button class="menu-button" aria-expanded="false" aria-label="Open menu"><span></span><span></span></button></header><nav class="menu-panel" aria-label="Mobile navigation">${nav}<small>Book I · Of Rune & Ruin<br>Water remembers. Power answers.</small></nav>`;const b=el.querySelector('.menu-button'),m=el.querySelector('.menu-panel');b.addEventListener('click',()=>{const open=m.classList.toggle('open');b.setAttribute('aria-expanded',String(open));document.body.style.overflow=open?'hidden':''})});
+document.querySelectorAll('[data-year]').forEach(el=>el.textContent=new Date().getFullYear());
