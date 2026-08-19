@@ -25,6 +25,8 @@ function render() {
     }
 
     sticky?.style.setProperty('--glow', String(0.04 + progress * 0.5));
+    sticky?.style.setProperty('--mist-shift', String(progress * 18));
+    sticky?.style.setProperty('--mist', String(0.16 + progress * 0.22));
     if (mode === 'ritual') {
       sticky?.style.setProperty('--debris', String(clamp((progress - 0.18) * 1.8)));
       sticky?.style.setProperty('--rise', String(clamp((progress - 0.15) * 1.3)));
