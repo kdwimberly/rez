@@ -1,0 +1,51 @@
+.archive-map {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 90px 5vw 72px;
+}
+
+.archive-map-heading {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 30px;
+  margin-bottom: 28px;
+  padding-bottom: 22px;
+  border-bottom: 1px solid var(--line);
+}
+
+.archive-map-heading .eyebrow { margin: 0; }
+
+.archive-map-heading h2 {
+  margin: 0;
+  font-size: clamp(3rem, 8vw, 6.5rem);
+  font-weight: 400;
+  line-height: .86;
+  letter-spacing: -.045em;
+}
+
+.archive-map figure {
+  position: relative;
+  overflow: hidden;
+  margin: 0;
+  background: #0b1721;
+  box-shadow: 0 24px 70px rgba(29,35,35,.18);
+}
+
+.archive-map figure::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  box-shadow: inset 0 0 0 1px rgba(238,233,223,.18), inset 0 0 70px rgba(3,11,18,.28);
+}
+
+.archive-map img {
+  width: 100%;
+  height: auto;
+}
+
+@media (max-width: 759px) {
+  .archive-map { padding: 64px 5vw 54px; }
+  .archive-map-heading { align-items: start; flex-direction: column; gap: 12px; }
+}
