@@ -1,6 +1,6 @@
 /* Final transition and reveal polish. Loaded after the chapter styles. */
 .prologue { --cover-gold: #9b8050; }
-.prologue .brand { letter-spacing:0; }
+.prologue .brand { font-family:Rockwell,"Rockwell Extra Bold","Roboto Slab","Courier New",serif; font-weight:900; letter-spacing:.01em; }
 .prologue .brand span { color:var(--cover-gold); font-family:inherit; font-size:inherit; font-style:inherit; font-weight:inherit; line-height:inherit; letter-spacing:inherit; vertical-align:baseline; text-shadow:0 0 18px rgba(155,128,80,.12); }
 .prologue-cover { background: #070708; }
 .prologue-cover-inner::after { content:''; position:absolute; z-index:1; inset:0; pointer-events:none; background:linear-gradient(180deg,transparent 0 64%,rgba(7,7,8,.08) 72%,rgba(7,7,8,.58) 88%,#070708 100%),radial-gradient(ellipse at center,transparent 48%,rgba(0,0,0,.2) 100%); }
@@ -13,7 +13,7 @@
 .prose p,.silence p,.final-reveal h2,.final-reveal span { transition:opacity .9s cubic-bezier(.22,1,.36,1),transform 1.05s cubic-bezier(.22,1,.36,1),filter .9s ease; }
 .js-reveal .prose p:not(.is-visible),.js-reveal .silence p:not(.is-visible),.js-reveal .final-reveal h2:not(.is-visible),.js-reveal .final-reveal span:not(.is-visible) { opacity:0; transform:translate3d(0,18px,0); filter:blur(3px); }
 .js-reveal .prose p.is-visible,.js-reveal .silence p.is-visible,.js-reveal .final-reveal h2.is-visible,.js-reveal .final-reveal span.is-visible { opacity:1; transform:translate3d(0,0,0); filter:blur(0); }
-.scene-copy { transition:border-color .5s ease,background .5s ease; }
+.scene-copy { display:none; }
 .scene-kicker,.final-reveal span { display:none; }
 .prose p:not(.beat):not(.cry)::before { display:none; content:none; }
 @media(max-width:759px){.prologue-intro{margin-top:-9vh}.prologue-intro h1{letter-spacing:.13em}.scene-art{inset:-7%;width:114%;height:114%;object-position:center center;transform-origin:50% 50%}}
