@@ -59,7 +59,7 @@ function update() {
 
 addEventListener('scroll', update, { passive: true });
 addEventListener('resize', update, { passive: true });
-const revealTargets = [...document.querySelectorAll('.prose p, .silence p, .final-reveal h2, .final-reveal span')];
+const revealTargets = [...document.querySelectorAll('.prose p, .chapter-prose p, .silence p, .final-reveal h2, .final-reveal span')];
 if ('IntersectionObserver' in window && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
   document.documentElement.classList.add('js-reveal');
   const revealObserver = new IntersectionObserver((entries) => {
