@@ -1,6 +1,6 @@
 /* Final transition and reveal polish. Loaded after the chapter styles. */
 .prologue { --cover-gold: #9b8050; }
-.prologue .brand span { color: var(--cover-gold); text-shadow: 0 0 18px rgba(155,128,80,.12); }
+.prologue .brand span { color: var(--cover-gold); display:inline; font:inherit; font-size:1em; font-weight:900; line-height:inherit; letter-spacing:inherit; vertical-align:baseline; text-shadow:0 0 18px rgba(155,128,80,.12); }
 .prologue-cover { background: #070708; }
 .prologue-cover-inner::after { content:''; position:absolute; z-index:1; inset:0; pointer-events:none; background:linear-gradient(180deg,transparent 0 64%,rgba(7,7,8,.08) 72%,rgba(7,7,8,.58) 88%,#070708 100%),radial-gradient(ellipse at center,transparent 48%,rgba(0,0,0,.2) 100%); }
 .prologue-cover img { -webkit-mask-image:linear-gradient(180deg,#000 0%,#000 72%,rgba(0,0,0,.92) 82%,rgba(0,0,0,.34) 94%,transparent 100%); mask-image:linear-gradient(180deg,#000 0%,#000 72%,rgba(0,0,0,.92) 82%,rgba(0,0,0,.34) 94%,transparent 100%); }
@@ -13,5 +13,6 @@
 .js-reveal .prose p:not(.is-visible),.js-reveal .silence p:not(.is-visible),.js-reveal .final-reveal h2:not(.is-visible),.js-reveal .final-reveal span:not(.is-visible) { opacity:0; transform:translate3d(0,18px,0); filter:blur(3px); }
 .js-reveal .prose p.is-visible,.js-reveal .silence p.is-visible,.js-reveal .final-reveal h2.is-visible,.js-reveal .final-reveal span.is-visible { opacity:1; transform:translate3d(0,0,0); filter:blur(0); }
 .scene-copy { transition:border-color .5s ease,background .5s ease; }
-@media(max-width:759px){.prologue-intro{margin-top:-9vh}.prologue-intro h1{letter-spacing:.13em}}
+.scene-kicker,.final-reveal span { display:none; }
+@media(max-width:759px){.prologue-intro{margin-top:-9vh}.prologue-intro h1{letter-spacing:.13em}.scene-art{top:-7%;right:0;bottom:auto;left:auto;width:114%;height:114%;object-position:right center;transform-origin:100% 50%}}
 @media(prefers-reduced-motion:reduce){.prologue-intro h1,.js-reveal .prose p,.js-reveal .silence p,.js-reveal .final-reveal h2,.js-reveal .final-reveal span{opacity:1!important;transform:none!important;filter:none!important}}
