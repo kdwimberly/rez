@@ -11,7 +11,7 @@ function render() {
     const sticky = scene.querySelector('.scene-sticky');
     const art = scene.querySelector('.scene-art');
     const mode = scene.dataset.mode || 'push';
-    const copyOpacity = clamp(1 - Math.abs(progress - 0.52) * 3.2);
+    const copyOpacity = clamp(1 - Math.abs(progress - 0.5) * 2.15);
     sticky?.style.setProperty('--copy-opacity', String(copyOpacity));
 
     if (art) {
