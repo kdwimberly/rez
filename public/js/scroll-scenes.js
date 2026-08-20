@@ -1,10 +1,18 @@
 const clamp = (number, min = 0, max = 1) => Math.min(max, Math.max(min, number));
 const scenes = [...document.querySelectorAll('[data-scroll-scene]')];
 const particles = [...document.querySelectorAll('.debris')];
+const prologueIntro = document.querySelector('[data-prologue-intro]');
 let ticking = false;
 
 function render() {
   const viewportHeight = innerHeight;
+  if (prologueIntro) {
+    const introRect = prologueIntro.getBoundingClientRect();
+    const introProgress = clamp((viewportHeight - introRect.top) / (viewportHeight + introRect.height));
+    const titleOpacity = clamp((introProgress - 0.12) / 0.5);
+    prologueIntro.style.setProperty('--intro-progress', String(introProgress));
+    prologueIntro.style.setProperty('--intro-title-opacity', String(titleOpacity));
+  }
   for (const scene of scenes) {
     const rect = scene.getBoundingClientRect();
     const progress = clamp(-rect.top / (rect.height - viewportHeight));
@@ -51,4 +59,17 @@ function update() {
 
 addEventListener('scroll', update, { passive: true });
 addEventListener('resize', update, { passive: true });
+const revealTargets = [...document.querySelectorAll('.prose p, .silence p, .final-reveal h2, .final-reveal span')];
+if ('IntersectionObserver' in window && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
+  document.documentElement.classList.add('js-reveal');
+  const revealObserver = new IntersectionObserver((entries) => {
+    for (const entry of entries) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-visible');
+        revealObserver.unobserve(entry.target);
+      }
+    }
+  }, { rootMargin: '0px 0px -12% 0px', threshold: 0.08 });
+  revealTargets.forEach((target) => revealObserver.observe(target));
+}
 render();
