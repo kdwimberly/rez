@@ -3,9 +3,11 @@
 .prologue .brand { font-family:Rockwell,"Rockwell Extra Bold","Roboto Slab","Courier New",serif; font-weight:900; letter-spacing:.01em; }
 .prologue .brand span { color:var(--cover-gold); font-family:inherit; font-size:inherit; font-style:inherit; font-weight:inherit; line-height:inherit; letter-spacing:inherit; vertical-align:baseline; text-shadow:0 0 18px rgba(155,128,80,.12); }
 .prologue-cover { background: #070708; }
+.prologue-cover-inner { padding-top:72px; }
 .prologue-cover-inner::after { content:''; position:absolute; z-index:1; inset:0; pointer-events:none; background:linear-gradient(180deg,transparent 0 64%,rgba(7,7,8,.08) 72%,rgba(7,7,8,.58) 88%,#070708 100%),radial-gradient(ellipse at center,transparent 48%,rgba(0,0,0,.2) 100%); }
 .prologue-cover img { -webkit-mask-image:linear-gradient(180deg,#000 0%,#000 72%,rgba(0,0,0,.92) 82%,rgba(0,0,0,.34) 94%,transparent 100%); mask-image:linear-gradient(180deg,#000 0%,#000 72%,rgba(0,0,0,.92) 82%,rgba(0,0,0,.34) 94%,transparent 100%); }
 .cover-label { transition:opacity .7s ease,transform .9s cubic-bezier(.22,1,.36,1); }
+@media(max-width:759px){.prologue-cover-inner{padding-top:64px}}
 .prologue-intro { position:relative; isolation:isolate; margin-top:-12vh; background:radial-gradient(ellipse at 50% 15%,rgba(90,72,103,.08),transparent 46%),#070708; }
 .prologue-intro::before { content:''; position:absolute; z-index:-1; inset:0; pointer-events:none; background:linear-gradient(180deg,transparent,rgba(255,255,255,.012) 48%,transparent); opacity:var(--intro-progress,0); }
 .prologue-intro h1 { opacity:var(--intro-title-opacity,.04); transform:translate3d(0,calc((1 - var(--intro-title-opacity,0))*24px),0); filter:blur(calc((1 - var(--intro-title-opacity,0))*8px)); color:#e4dfd6; text-shadow:0 0 36px rgba(123,98,139,calc(var(--intro-title-opacity,0)*.13)); will-change:opacity,transform,filter; }
