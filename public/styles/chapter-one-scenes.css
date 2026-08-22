@@ -5,6 +5,10 @@
   background: var(--paper);
 }
 
+.chapter-cover-inner {
+  padding-top: 72px;
+}
+
 .zevora-scene .scene-sticky {
   position: sticky;
   top: 0;
@@ -84,12 +88,24 @@
   background: radial-gradient(ellipse at 20% 78%, rgba(187,190,184,.27), transparent 46%), radial-gradient(ellipse at 74% 72%, rgba(108,119,123,.2), transparent 52%);
 }
 
+.zevora-scene-smoke .zevora-atmosphere {
+  inset: 18% -12% auto -12%;
+  height: 65%;
+  opacity: calc(var(--mist, .18) * 1.55);
+  background: radial-gradient(ellipse at 18% 55%, rgba(103,72,118,.3), transparent 36%), radial-gradient(ellipse at 57% 68%, rgba(138,142,143,.2), transparent 51%);
+}
+
+.zevora-scene-smoke .zevora-scene-shade {
+  background: linear-gradient(180deg, rgba(11,13,16,.18), transparent 32%, transparent 72%, rgba(8,10,13,.3)), radial-gradient(circle at 18% 54%, rgba(78,46,89,.14), transparent 32%), radial-gradient(ellipse at center, transparent 50%, rgba(2,5,8,.3));
+}
+
 .zevora-scene + .chapter-section,
 .chapter-section + .zevora-scene {
   position: relative;
 }
 
 @media (max-width: 759px) {
+  .chapter-cover-inner { padding-top: 64px; }
   .zevora-scene { height: 142svh; }
   .zevora-scene .scene-art { inset: -8%; width: 116%; height: 116%; object-position: center; }
   .zevora-scene::before,
