@@ -25,11 +25,12 @@ function render() {
     if (art) {
       const startScale = Number(scene.dataset.scale || 1.04);
       const endScale = Number(scene.dataset.scaleEnd || 1.16);
+      const isZevoraScene = scene.classList.contains('zevora-scene');
       art.style.setProperty('--scale', String(startScale + (endScale - startScale) * progress));
       art.style.setProperty('--x', `${(Number(scene.dataset.panX || 0) * progress).toFixed(2)}%`);
       art.style.setProperty('--y', `${(Number(scene.dataset.panY || 0) * progress).toFixed(2)}%`);
-      art.style.setProperty('--brightness', String(0.42 + progress * 0.38));
-      art.style.setProperty('--saturation', String(0.62 + progress * 0.34));
+      art.style.setProperty('--brightness', String(isZevoraScene ? 0.84 + progress * 0.12 : 0.42 + progress * 0.38));
+      art.style.setProperty('--saturation', String(isZevoraScene ? 0.82 + progress * 0.12 : 0.62 + progress * 0.34));
     }
 
     sticky?.style.setProperty('--glow', String(0.04 + progress * 0.5));

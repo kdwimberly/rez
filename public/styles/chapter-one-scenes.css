@@ -1,0 +1,102 @@
+.zevora-scene {
+  position: relative;
+  height: 158svh;
+  margin: -2px 0;
+  background: var(--paper);
+}
+
+.zevora-scene .scene-sticky {
+  position: sticky;
+  top: 0;
+  height: 100svh;
+  overflow: hidden;
+  background: #10151d;
+  isolation: isolate;
+}
+
+.zevora-scene .scene-art {
+  position: absolute;
+  z-index: 0;
+  inset: -5%;
+  width: 110%;
+  height: 110%;
+  max-width: none;
+  object-fit: cover;
+  object-position: center;
+  transform: scale(var(--scale, 1.02)) translate3d(var(--x, 0), var(--y, 0), 0);
+  filter: brightness(var(--brightness, .88)) saturate(var(--saturation, .86)) contrast(1.02);
+  will-change: transform, filter;
+}
+
+.zevora-scene::before,
+.zevora-scene::after {
+  content: '';
+  position: absolute;
+  z-index: 4;
+  left: 0;
+  right: 0;
+  height: 28svh;
+  pointer-events: none;
+}
+
+.zevora-scene::before {
+  top: 0;
+  background: linear-gradient(180deg, var(--paper) 0%, rgba(240,236,226,.92) 13%, rgba(32,34,37,.25) 72%, transparent 100%);
+}
+
+.zevora-scene::after {
+  bottom: 0;
+  background: linear-gradient(0deg, var(--paper) 0%, rgba(240,236,226,.92) 13%, rgba(24,28,34,.22) 72%, transparent 100%);
+}
+
+.zevora-scene-shade {
+  position: absolute;
+  z-index: 1;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(10,14,20,.2), transparent 35%, transparent 70%, rgba(8,11,16,.3)), radial-gradient(ellipse at center, transparent 48%, rgba(4,8,13,.32) 100%);
+  pointer-events: none;
+}
+
+.zevora-atmosphere {
+  position: absolute;
+  z-index: 2;
+  inset: auto -15% 3% -15%;
+  height: 42%;
+  opacity: var(--mist, .18);
+  transform: translate3d(calc(var(--mist-shift, 0) * .45%), calc(var(--mist-shift, 0) * -.1%), 0);
+  background: radial-gradient(ellipse at 26% 70%, rgba(209,214,217,.2), transparent 47%), radial-gradient(ellipse at 74% 82%, rgba(135,146,153,.16), transparent 52%);
+  filter: blur(36px);
+  mix-blend-mode: screen;
+  pointer-events: none;
+}
+
+.zevora-scene-amber .zevora-scene-shade {
+  background: linear-gradient(180deg, rgba(8,11,17,.18), transparent 32%, transparent 72%, rgba(8,10,15,.35)), radial-gradient(circle at 57% 39%, rgba(164,100,39,.13), transparent 39%), radial-gradient(ellipse at center, transparent 50%, rgba(2,6,12,.34));
+}
+
+.zevora-scene-memory .zevora-atmosphere {
+  background: radial-gradient(ellipse at 22% 72%, rgba(178,198,198,.19), transparent 48%), radial-gradient(ellipse at 76% 76%, rgba(179,139,81,.13), transparent 48%);
+}
+
+.zevora-scene-city .zevora-atmosphere,
+.zevora-scene-train .zevora-atmosphere {
+  opacity: calc(var(--mist, .18) * 1.25);
+  background: radial-gradient(ellipse at 20% 78%, rgba(187,190,184,.27), transparent 46%), radial-gradient(ellipse at 74% 72%, rgba(108,119,123,.2), transparent 52%);
+}
+
+.zevora-scene + .chapter-section,
+.chapter-section + .zevora-scene {
+  position: relative;
+}
+
+@media (max-width: 759px) {
+  .zevora-scene { height: 142svh; }
+  .zevora-scene .scene-art { inset: -8%; width: 116%; height: 116%; object-position: center; }
+  .zevora-scene::before,
+  .zevora-scene::after { height: 23svh; }
+  .zevora-atmosphere { filter: blur(24px); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .zevora-scene .scene-art { transform: none !important; }
+}
